@@ -4,6 +4,7 @@ const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("7928533871:AAH4GIvqPkPxIShd2XBj6c8owILW7KMsv_M");
 const request1 = new Telegraf("7625007518:AAHw8K6ODtPQJnL0PD_Y0yyyNCxuMlq2VKE");
+const bot2 = new Telegraf("7699922864:AAF04nhoQ-blCKd5gW3fXRqt2ua8F-KIEI0");
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmDHnQJK40zeUIqsDRCuyHr8HViIT1XP4",
@@ -129,5 +130,31 @@ request1.on("chat_join_request", (ctx) => {
   }
 });
 
+bot2.start((ctx) => {
+  try {
+    ctx.reply(
+      "🔞 Barcha porno videolar mavjud. Ularni yuklab olishdan avval ushbu kanallarga obuna bo'ling",
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: "1-kanal", url: "https://t.me/+BDW0yGy3D9A0MTJi" }],
+            [
+              {
+                text: "2-bot",
+                url: "https://t.me/Yashirin_Kinolar_kodli_1_bot",
+              },
+            ],
+            [{ text: "3-kanal", url: "https://t.me/+KP5adUHXaPJjZGIy" }],
+            [{ text: "4-kanal", url: "https://t.me/+Wjnkg-tt8llkZDgy" }],
+          ],
+        },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 bot.launch();
 request1.launch();
+bot2.launch();
