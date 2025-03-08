@@ -130,7 +130,26 @@ request1.on("chat_join_request", (ctx) => {
   }
 });
 
-bot2.start((ctx) => {
+bot2.start(async (ctx) => {
+  // Database ishi
+  const userId = ctx.from.id;
+  const username = ctx.from.username ? ctx.from.username : "NoUsername";
+  const userRef = doc(db, "users2", userId.toString());
+  const userSnap = await getDoc(userRef);
+
+  if (!userSnap.exists()) {
+    try {
+      await setDoc(userRef, {
+        username,
+        referrals: 0,
+        userId: ctx.from.id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  //Database
+
   try {
     ctx.reply(
       "🔞 Barcha porno videolar mavjud. Ularni yuklab olishdan avval ushbu kanallarga obuna bo'ling",
