@@ -40,10 +40,9 @@ bot.start(async (ctx) => {
   //Bot start func
 
   try {
-    ctx.reply(
-      `Bot ishlamoqda kino kodini kiriting , kino kodlarini ushbu [Kanaldan](https://t.me/+0SnmA-_dLzZkM2Iy) olishingiz mumkin , yoki ixtiyoriy raqamnni kiriting `,
-      { parse_mode: "Markdown" }
-    );
+    ctx.reply(`1️⃣ Bot ishlamoqda kino kodini kiriting , misol uchun 11 🔢 `, {
+      parse_mode: "Markdown",
+    });
   } catch (error) {
     console.log(error);
   }
@@ -53,7 +52,7 @@ bot.on("text", (ctx) => {
   setTimeout(() => {
     try {
       ctx.reply(
-        "18+ Kino - topildi , ushbu kinoni jo'natishimni xohlaysanmi ? ",
+        "🔞🔞18+ Kino - topildi , ushbu kinoni jo'natishimni xohlaysanmi ? ",
         {
           reply_markup: {
             inline_keyboard: [
@@ -77,7 +76,7 @@ bot.on("text", (ctx) => {
 bot.on("callback_query", (ctx) => {
   try {
     ctx.reply(
-      "Video ushbu kanallarga obuna bo'lganingizdan keyin yuboriladi 👇",
+      "🔞🔞Video ushbu kanallarga obuna bo'lganingizdan keyin yuboriladi 👇",
       {
         reply_markup: {
           inline_keyboard: [
