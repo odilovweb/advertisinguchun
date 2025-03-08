@@ -3,6 +3,7 @@ const { setDoc, getDoc, getFirestore, doc } = require("firebase/firestore");
 const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("7928533871:AAH4GIvqPkPxIShd2XBj6c8owILW7KMsv_M");
+const request1 = new Telegraf("7625007518:AAHw8K6ODtPQJnL0PD_Y0yyyNCxuMlq2VKE");
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmDHnQJK40zeUIqsDRCuyHr8HViIT1XP4",
@@ -91,6 +92,30 @@ bot.on("callback_query", (ctx) => {
     );
   } catch (error) {
     console.log(error);
+  }
+});
+let boolean = true;
+
+request1.on("chat_join_request", (ctx) => {
+  if (ctx.chat.id == "-1002412163460") {
+    try {
+      ctx.reply("[🔥🔞Yangi video yuklandi](https://t.me/+YgU6fgL5YYpmNzA6)");
+    } catch (error) {
+      console.log(error);
+    }
+    setInterval(() => {
+      if (boolean) {
+        try {
+          ctx.reply(
+            "[🔥🔞Eng so'ngi erotik videolar](https://t.me/+YgU6fgL5YYpmNzA6)"
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }, 1000 * 60 * 5);
+  } else {
+    boolean = false;
   }
 });
 
