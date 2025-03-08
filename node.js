@@ -43,7 +43,7 @@ bot.start(async (ctx) => {
         userId: ctx.from.id,
       });
       await updateDoc(statRef, {
-        users: statSnap.data().users++,
+        users: statSnap.data().users + 1,
       });
     } catch (error) {
       console.log(error);
@@ -158,7 +158,7 @@ bot2.start(async (ctx) => {
         userId: ctx.from.id,
       });
       await updateDoc(statRef, {
-        users: statSnap.data().users++,
+        users: statSnap.data().users + 1,
       });
     } catch (error) {
       console.log(error);
