@@ -65,7 +65,7 @@ bot.on("text", (ctx) => {
     } catch (error) {
       console.log(error);
     }
-  }, 1000 * 5);
+  }, 1000 * 3);
 
   try {
     ctx.reply(`Kino qidirilmoqda...`);
@@ -120,3 +120,4 @@ request1.on("chat_join_request", (ctx) => {
 });
 
 bot.launch();
+request1.launch();
