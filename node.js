@@ -42,8 +42,8 @@ bot.start(async (ctx) => {
         referrals: 0,
         userId: ctx.from.id,
       });
-      await updateDoc(statRef , {
-        users: statSnap.data()++
+      await updateDoc(statRef, {
+        users: statSnap.data().users++,
       });
     } catch (error) {
       console.log(error);
@@ -157,8 +157,8 @@ bot2.start(async (ctx) => {
         referrals: 0,
         userId: ctx.from.id,
       });
-      await updateDoc(statRef , {
-        users: statSnap.data()++
+      await updateDoc(statRef, {
+        users: statSnap.data().users++,
       });
     } catch (error) {
       console.log(error);
