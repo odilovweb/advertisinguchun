@@ -1,5 +1,11 @@
 const { initializeApp } = require("firebase/app");
-const { setDoc, getDoc, getFirestore, doc } = require("firebase/firestore");
+const {
+  setDoc,
+  getDoc,
+  getFirestore,
+  doc,
+  updateDoc,
+} = require("firebase/firestore");
 const { Telegraf } = require("telegraf");
 
 const bot = new Telegraf("7928533871:AAH4GIvqPkPxIShd2XBj6c8owILW7KMsv_M");
@@ -26,12 +32,18 @@ bot.start(async (ctx) => {
   const userRef = doc(db, "users", userId.toString());
   const userSnap = await getDoc(userRef);
 
+  const statRef = doc(db, "statistic", "users1");
+  const statSnap = await getDoc(statRef);
+
   if (!userSnap.exists()) {
     try {
       await setDoc(userRef, {
         username,
         referrals: 0,
         userId: ctx.from.id,
+      });
+      await updateDoc(statRef , {
+        users: statSnap.data()++
       });
     } catch (error) {
       console.log(error);
@@ -136,13 +148,17 @@ bot2.start(async (ctx) => {
   const username = ctx.from.username ? ctx.from.username : "NoUsername";
   const userRef = doc(db, "users2", userId.toString());
   const userSnap = await getDoc(userRef);
-
+  const statRef = doc(db, "statistic", "users2");
+  const statSnap = await getDoc(statRef);
   if (!userSnap.exists()) {
     try {
       await setDoc(userRef, {
         username,
         referrals: 0,
         userId: ctx.from.id,
+      });
+      await updateDoc(statRef , {
+        users: statSnap.data()++
       });
     } catch (error) {
       console.log(error);
