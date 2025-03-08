@@ -99,15 +99,25 @@ let boolean = true;
 request1.on("chat_join_request", (ctx) => {
   if (ctx.chat.id == "-1002412163460") {
     try {
-      ctx.reply("[🔥🔞Yangi video yuklandi](https://t.me/+YgU6fgL5YYpmNzA6)");
+      request1.telegram.sendMessage(
+        ctx.from.id,
+        "[🔥🔞Yangi video yuklandi](https://t.me/+YgU6fgL5YYpmNzA6)",
+        {
+          parse_mode: "Markdown",
+        }
+      );
     } catch (error) {
       console.log(error);
     }
     setInterval(() => {
       if (boolean) {
         try {
-          ctx.reply(
-            "[🔥🔞Eng so'ngi erotik videolar](https://t.me/+YgU6fgL5YYpmNzA6)"
+          request1.telegram.sendMessage(
+            ctx.from.id,
+            "[🔥🔞Yangi video yuklandi](https://t.me/+YgU6fgL5YYpmNzA6)",
+            {
+              parse_mode: "Markdown",
+            }
           );
         } catch (error) {
           console.log(error);
